@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root{
+    --background: black;
+    --line: black;
+    --text: #b7b7b7;
+    --holder: #101010;
+    --svg: #b7b7b74d;
+    --svghover: #d7d2d284;
+}
+
+[data-theme="dark"] {
+    --background: #f3f3f3;
+    --text: #000000;
+    --line: #e6e6e6;
+    --holder: #e6e6e6;
+    --svg: rgba(142, 142, 142, 0.518);
+    --svghover: rgba(60, 60, 60, 0.518);
+}
+
+
+html,body{
+    background-color: var(--background);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    font-family: "Bebas Neue";
+}
+
+.line{
+    width: 100%;
+    height: 8px;
+    background-color: var(--line);
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+}
+
+.container{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0 1% 0 1%;    
+}
+
+.holder{
+    position: relative;
+
+    width: 100%;
+    /* height: 80%; */
+
+    margin: auto 1%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--holder);
+    /* background-color: #626262; */
+
+    border-radius: 50px;
+}
+.holder h1{
+    color: var(--text);
+    
+    /* font-size: 480px; */
+    font-size: clamp(30vw,40vw,50vw);
+
+    margin:auto;
+    text-align: center;
+    font-weight: 100;
+    transition: all 0.5s;
+}
+
+
+.holder h2{
+    position: absolute;
+    top: 70%;
+    color: var(--text);
+    
+    /* font-size: 50px; */
+    font-size: clamp(3vw,4vw,5vw);
+
+    font-family: Arial;
+    font-weight: bold;
+
+    margin-left: 7%;
+    text-align: left;
+}
+.social{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right:0%;
+    margin: 0 20px 10px 0;
+}
+
+svg{
+    width: 3vw; 
+    height: 3vw;
+
+    margin-left: .5em;
+
+    fill: var(--svg);
+    transition: all 0.2s ease;
+}
+svg:hover{
+    fill: var(--svghover);
+}
+
+
+.plus-minus {
+    --svg: #b7b7b7;
+    --secondary: #4d4d4d;
+
+    --duration: .5s;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 240px;
+    border-radius: 50%;
+
+    width: 2.5vw;
+    height: 2.5vw;
+    /* margin-top:10px; */
+
+    /* border: 4px solid var(--svg); */
+    background-size: 300% 300%;
+    transition: transform 0.3s;
+    transform: scale(var(--scale, 1)) translateZ(0);
+    -webkit-animation: var(--name, unchecked) var(--duration) ease forwards;
+            animation: var(--name, unchecked) var(--duration) ease forwards;
+  }
+  .plus-minus:before, .plus-minus:after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: var(--height, 16px);
+    left: 6px;
+    top: var(--top, 6px);
+    -webkit-animation: var(--name-icon-b, var(--name-icon, unchecked-icon)) var(--duration) ease forwards;
+            animation: var(--name-icon-b, var(--name-icon, unchecked-icon)) var(--duration) ease forwards;
+  }
+  .plus-minus:before {
+    -webkit-clip-path: polygon(0 6px, 6px 6px, 6px 0, 10px 0, 10px 6px, 16px 6px, 16px 10px, 10px 10px, 10px 16px, 6px 16px, 6px 10px, 0 10px);
+            clip-path: polygon(0 6px, 6px 6px, 6px 0, 10px 0, 10px 6px, 16px 6px, 16px 10px, 10px 10px, 10px 16px, 6px 16px, 6px 10px, 0 10px);
+  }
+  .plus-minus:after {
+    --height: 4px;
+    --top: 12px;
+    --background: var(--secondary);
+    --name-icon-b: var(--name-icon-a, checked-icon);
+  }
+  .plus-minus:active {
+    --scale: .95;
+  }
+  .plus-minus:checked {
+    --name: checked;
+    --name-icon-b: checked-icon;
+    --name-icon-a: unchecked-icon;
+  }
+  .plus-minus:hover{
+    --svg: rgba(60, 60, 60, 0.518);
+    --secondary: #636363;
+
+  }
+  
+  @-webkit-keyframes checked-icon {
+    from {
+      transform: translateZ(12px);
+    }
+    to {
+      transform: translateX(16px) rotateY(90deg) translateZ(12px);
+    }
+  }
+  
+  @keyframes checked-icon {
+    from {
+      transform: translateZ(12px);
+    }
+    to {
+      transform: translateX(16px) rotateY(90deg) translateZ(12px);
+    }
+  }
+  @-webkit-keyframes unchecked-icon {
+    from {
+      transform: translateX(-16px) rotateY(-90deg) translateZ(12px);
+    }
+    to {
+      transform: translateZ(12px);
+    }
+  }
+  @keyframes unchecked-icon {
+    from {
+      transform: translateX(-16px) rotateY(-90deg) translateZ(12px);
+    }
+    to {
+      transform: translateZ(12px);
+    }
+  }
+  @-webkit-keyframes checked {
+    from {
+      background-image: radial-gradient(ellipse at center, var(--svg) 0%, var(--svg) 25%, var(--secondary) 25.1%, var(--secondary) 100%);
+      background-position: 100% 50%;
+    }
+    to {
+      background-image: radial-gradient(ellipse at center, var(--svg) 0%, var(--svg) 25%, var(--secondary) 25.1%, var(--secondary) 100%);
+      background-position: 50% 50%;
+    }
+  }
+  @keyframes checked {
+    from {
+      background-image: radial-gradient(ellipse at center, var(--svg) 0%, var(--svg) 25%, var(--secondary) 25.1%, var(--secondary) 100%);
+      background-position: 100% 50%;
+    }
+    to {
+      background-image: radial-gradient(ellipse at center, var(--svg) 0%, var(--svg) 25%, var(--secondary) 25.1%, var(--secondary) 100%);
+      background-position: 50% 50%;
+    }
+  }
+  @-webkit-keyframes unchecked {
+    from {
+      background-image: radial-gradient(ellipse at center, var(--secondary) 0%, var(--secondary) 25%, var(--svg) 25.1%, var(--svg) 100%);
+      background-position: 100% 50%;
+    }
+    to {
+      background-image: radial-gradient(ellipse at center, var(--secondary) 0%, var(--secondary) 25%, var(--svg) 25.1%, var(--svg) 100%);
+      background-position: 50% 50%;
+    }
+  }
+  @keyframes unchecked {
+    from {
+      background-image: radial-gradient(ellipse at center, var(--secondary) 0%, var(--secondary) 25%, var(--svg) 25.1%, var(--svg) 100%);
+      background-position: 100% 50%;
+    }
+    to {
+      background-image: radial-gradient(ellipse at center, var(--secondary) 0%, var(--secondary) 25%, var(--svg) 25.1%, var(--svg) 100%);
+      background-position: 50% 50%;
+    }
+  }
+
+
+@media only screen and (max-width: 1200px) { 
+    .line{
+        height: 5px;
+    }
+    .holder{
+        border-radius: 20px;
+        margin: auto 5px;
+    }
+    svg{
+        width: 8vw; 
+        height: 8vw;
+    }
+    .plus-minus{
+        width: 6.5vw; 
+        height: 6.5vw;
+    }
+    @media screen and (orientation: landscape) {
+        svg{
+            width: 4vw; 
+            height: 4vw;
+            margin-left: .3em;
+        }
+        .plus-minus{
+            width: 3.2vw; 
+            height: 3.2vw;
+        }
+    }
+}
+
+
+    
